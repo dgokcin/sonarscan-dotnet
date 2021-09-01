@@ -31,6 +31,10 @@ RUN apt-get update -y \
     && apt-get install --no-install-recommends -y aspnetcore-runtime-$DOTNETCORE_RUNTIME_VERSION \
     && apt-get -y install --no-install-recommends locales
 
+# Set the locale
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen
+        
 ENV LANG en_US.UTF-8 \
     LANGUAGE en_US:en \
     LC_ALL en_US.UTF-8   
