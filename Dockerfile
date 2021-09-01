@@ -12,7 +12,10 @@ LABEL "maintainer"="Highbyte"
 # Version numbers of used software
 ENV SONAR_SCANNER_DOTNET_TOOL_VERSION=5.0.3 \
     DOTNETCORE_RUNTIME_VERSION=5.0 \
-    JRE_VERSION=11
+    JRE_VERSION=11 \
+    LANG=en_US.UTF-8 \
+    LC_ALL=en_US.UTF-8 \
+    
 
 # Add Microsoft Debian apt-get feed 
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
