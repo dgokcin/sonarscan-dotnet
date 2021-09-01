@@ -12,9 +12,7 @@ LABEL "maintainer"="Highbyte"
 # Version numbers of used software
 ENV SONAR_SCANNER_DOTNET_TOOL_VERSION=5.3.1 \
     DOTNETCORE_RUNTIME_VERSION=5.0 \
-    JRE_VERSION=11 \
-    LANG=en_US.UTF-8 \
-    LC_ALL=en_US.UTF-8
+    JRE_VERSION=11
     
 
 # Add Microsoft Debian apt-get feed 
@@ -30,7 +28,12 @@ RUN mkdir -p /usr/share/man/man1
 RUN apt-get update -y \
     && apt-get install --no-install-recommends -y apt-transport-https \
     && apt-get update -y \
-    && apt-get install --no-install-recommends -y aspnetcore-runtime-$DOTNETCORE_RUNTIME_VERSION
+    && apt-get install --no-install-recommends -y aspnetcore-runtime-$DOTNETCORE_RUNTIME_VERSION \
+    && apt-get -y install --no-install-recommends locales
+
+ENV LANG en_US.UTF-8 \
+    LANGUAGE en_US:en \
+    LC_ALL en_US.UTF-8   
 
 # Install Java Runtime for SonarScanner
 RUN apt-get install --no-install-recommends -y openjdk-$JRE_VERSION-jre
