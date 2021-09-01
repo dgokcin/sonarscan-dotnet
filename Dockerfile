@@ -14,7 +14,7 @@ ENV SONAR_SCANNER_DOTNET_TOOL_VERSION=5.3.1 \
     DOTNETCORE_RUNTIME_VERSION=5.0 \
     JRE_VERSION=11 \
     LANG=en_US.UTF-8 \
-    LC_ALL=en_US.UTF-8 \
+    LC_ALL=en_US.UTF-8
     
 
 # Add Microsoft Debian apt-get feed 
